@@ -1,0 +1,20 @@
+[
+    {
+        "Nombre": "Oriana",
+        "Apellido": "Morcillo",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso": "Curso de Electricidad"
+    },
+    {
+        "Nombre": "Oriana",
+        "Apellido": "Cabrera",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso": "Curso de Inglés"
+    },
+    {
+        "Nombre": "Pablo Manuel",
+        "Apellido": "Frenchi",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso": "Taller de Escritura"
+    }
+]
