@@ -16,5 +16,12 @@
         "Apellido": "Frenchi",
         "Nivel de Conocimiento": "Alto",
         "Nombre de Curso": "Taller de Escritura"
+    },
+    {
+        "Nombre": "Marianela",
+        "Apellido": "Gonzales",
+        "Nivel de Conocimiento": "medio",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 1
     }
 ]
