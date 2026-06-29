@@ -12,13 +12,18 @@ def carga_espera(mensaje="Cargando", segundos=3, num_puntos=3): #ayuda de IA gem
             time.sleep(0.5)  # Pausa de medio segundo
     print()
    
-
-
 def guardar_inscripcion(alumno, datos, arch):
- datos.append(alumno)
- with open(arch, "w", encoding="utf-8") as archivo: #guardado del alumno
+    for linea in datos:
+        if (linea.get("Nombre").lower() == alumno["Nombre"].lower() and
+            linea.get("Apellido").lower() == alumno["Apellido"].lower() and
+            linea.get("Nombre de Curso/Taller") == alumno["Nombre de Curso/Taller"]):
+            print("Ese alumno ya está inscripto en ese curso.")
+            return
+        
+    datos.append(alumno)
+    with open(arch, "w", encoding="utf-8") as archivo: #guardado del alumno
         json.dump(datos, archivo, indent=4, ensure_ascii=False)
- print("¡Ya estás inscripto!🤓")  
+        print("¡Ya estás inscripto!🤓")  
 
 def obtenerInscriptosValidacion(curso, datos):
   cupos= 25
@@ -136,6 +141,33 @@ def buscar_alumno():
                 return
     print("No existe alumno inscripto con ese nombre o apellido")   
 
+def actualizar_lugares(datos, curso):
+    lugar = 1
+    for alumno in datos:
+        if alumno.get("Nombre de Curso/Taller") == curso:
+            alumno["Lugar"] = lugar
+            lugar += 1
+
+def dar_de_baja():
+    try:
+        with open("inscriptos.json", "r", encoding="utf-8") as archivo:
+            datos = json.load(archivo)
+    except (FileNotFoundError, json.JSONDecodeError):
+        print("No hay alumnos inscriptos.")
+        return
+    nombre = str(input("Ingrese el nombre del inscripto: "))
+    apellido = str(input("Ingrese el apellido del inscripto: "))
+    for alumno in datos:
+        if alumno.get("Nombre").lower() == nombre.lower() and alumno.get("Apellido").lower() == apellido.lower():
+            curso = alumno.get("Nombre de Curso/Taller")
+            datos.remove(alumno)
+            actualizar_lugares(datos,curso)
+            with open("inscriptos.json", "w", encoding="utf-8") as archivo:
+                json.dump(datos, archivo, indent=4, ensure_ascii=False)
+            print("Alumno dado de baja correctamente.")
+            return
+    print("No existe un alumno con ese nombre y apellido.")
+        
 menu = {
     "1": lambda: inscripcion("Curso de Inglés"),
     "2": lambda: inscripcion("Curso de Portugués"),
@@ -145,7 +177,8 @@ menu = {
     "6": lambda: inscripcion("Taller de Escritura"),
     "7": lambda: inscripcion("Taller de Lecto Comprensión"),
     "8": estadisticas,
-    "9": buscar_alumno
+    "9": buscar_alumno,
+    "10": dar_de_baja
     }
 
 while True:
@@ -166,8 +199,8 @@ while True:
  print("""
  8- Estadisticas de inscriptos a cada curso
  9- Buscar alumno inscripto
+ 10- Dar de baja alumno inscripto
  """) 
-  
  opcion =input("Introduzca su opción: ")
  accion = menu.get(opcion)
  
