@@ -10,6 +10,7 @@ def carga_espera(mensaje="Cargando", segundos=3, num_puntos=3): #ayuda de IA gem
             espacios = " " * (num_puntos - i)
             print(f"\r{mensaje}{puntos}{espacios}", end="", flush=True)
             time.sleep(0.5)  # Pausa de medio segundo
+    print()
    
 
 
@@ -96,7 +97,44 @@ def inscripcion(curso):
       } #este es el armado del registro de cada inscripto 
       guardar_inscripcion(alumno, datos, arch)
 
+def estadisticas():
+    try:
+        with open("inscriptos.json","r",encoding="utf-8") as archivo:
+            datos = json.load(archivo)
+    except (FileNotFoundError, json.JSONDecodeError):
+        print("No hay alumnos inscriptos.")
+        return
+    cursos = [
+            "Curso de Inglés",
+            "Curso de Portugués",
+            "Curso de Informática",
+            "Curso de Electricidad",
+            "Taller de Pintura",
+            "Taller de Escritura",
+            "Taller de Lecto Comprensión"
+            ]
+    for curso in cursos:
+            cont = 0
+            for alumno in datos:
+                if alumno.get("Nombre de Curso/Taller") == curso:
+                    cont +=1
+            print("Cantidad de inscriptos a", curso, "es: ", cont,"/25 alumnos")
 
+def buscar_alumno():
+    try:
+        with open("inscriptos.json","r",encoding="utf-8") as archivo:
+            datos = json.load(archivo)
+    except (FileNotFoundError, json.JSONDecodeError):
+        print("No hay alumnos inscriptos.")
+        return
+    nombre = str(input("Ingrese el nombre del inscripto: "))
+    apellido = str(input("Ingrese el apellido del inscripto: "))
+    for alumno in datos:
+            if (alumno.get("Nombre").lower() == nombre.lower() and alumno.get("Apellido").lower() == apellido.lower()):
+                print(nombre,apellido)
+                print(alumno.get("Nombre de Curso/Taller"))
+                return
+    print("No existe alumno inscripto con ese nombre o apellido")   
 
 menu = {
     "1": lambda: inscripcion("Curso de Inglés"),
@@ -106,7 +144,9 @@ menu = {
     "5": lambda: inscripcion("Taller de Pintura"),
     "6": lambda: inscripcion("Taller de Escritura"),
     "7": lambda: inscripcion("Taller de Lecto Comprensión"),
-}
+    "8": estadisticas,
+    "9": buscar_alumno
+    }
 
 while True:
  print("Elija el curso o Taller al que se quiere inscribir ")
@@ -122,6 +162,10 @@ while True:
  5- Taller de Pintura 🎨
  6- Taller de Escritura ✒️ 
  7- Taller de Comprensión Lectora 📖
+ """)
+ print("""
+ 8- Estadisticas de inscriptos a cada curso
+ 9- Buscar alumno inscripto
  """) 
   
  opcion =input("Introduzca su opción: ")
@@ -137,4 +181,3 @@ while True:
    print("\n")
    carga_espera("Volviendo a Menu principal", 2)
    print("\n")
-
