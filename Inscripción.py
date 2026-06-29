@@ -19,6 +19,28 @@ def obtenerInscriptosValidacion(curso, datos):
     return -1 #esto indica que el curso está lleno
   return inscriptos_curso
       
+def ListaEspera(alumnoEspera, curso):
+    arch= "espera.json"
+    try:
+        with open(arch,"r", encoding="utf-8") as archivo:
+           espera= json.load(archivo)
+    except (FileNotFoundError, json.JSONDecodeError):
+           espera= []
+    
+    alumnosEnEspera= 0
+    for e in espera:
+        if e.get("Nombre de Curso/Taller") == curso:
+           alumnosEnEspera += 1
+    lugar_espera= alumnosEnEspera + 1 
+    datosAlumno= { #asignacion de campos al registro del archivo
+        "Nombre": alumnoEspera["Nombre"], "Apellido": alumnoEspera["Apellido"], "Nivel de Conocimiento": alumnoEspera["Nivel de Conocimiento"],
+        "Nombre de Curso/Taller": curso, "Lugar": lugar_espera
+    }
+    espera.append(datosAlumno)
+
+    with open(arch, "w", encoding="utf-8") as archivo:
+        json.dump(espera, archivo, indent=4, ensure_ascii=False)
+        print("Te añadimos a la lista de espera! Si hay alguna vacante te avisaremos")
 
 def inscripcion(curso):
     arch= "inscriptos.json"
@@ -29,21 +51,37 @@ def inscripcion(curso):
              datos=[] #empiezo una lista nueva 
 
     incriptosActu= obtenerInscriptosValidacion(curso, datos)
-    if incriptosActu == -1: #indica que esta lleno y detiene la fn
-     return 
     
-    print("\n")
-    print("Está inscribiendose al ", curso)
-    nombre= str(input("Indique sus Nombres sin el apellido: "))
-    apellido= str(input("Indique su Apellido: "))
-    conocimiento= str(input("Indique su conocimiento sobre la materia (Alto, Medio Nulo): "))
-    lugar_curso= incriptosActu + 1
-    alumno = {
-        "Nombre": nombre, "Apellido": apellido, "Nivel de Conocimiento": conocimiento,
-        "Nombre de Curso/Taller": curso, "Lugar": lugar_curso,
-    } #este es el armado del registro de cada inscripto
-    
-    guardar_inscripcion(alumno, datos, arch)
+    if incriptosActu == -1: 
+        inscribir= input("¿Querés inscribirte en la lista de espera? Ingresa 'si' sino, ingresa otro caracter")
+        if inscribir != "si":
+            print("Su inscripción ha sido cancelada")
+            return
+        print("\n")
+        print("Vamos a tomar sus datos para la lista de espera")
+        print("\n")
+        print("Está inscribiendose al ", curso)
+        nombre= str(input("Indique sus Nombres sin el apellido: "))
+        apellido= str(input("Indique su Apellido: "))
+        conocimiento= str(input("Indique su conocimiento sobre la materia (Alto, Medio Nulo): "))  
+        alumnoEspera= { #registro de esperas
+            "Nombre": nombre, "Apellido": apellido, "Nivel de Conocimiento": conocimiento,
+            "Nombre de Curso/Taller": curso
+            }
+        ListaEspera(alumnoEspera, curso)
+    else:
+      print("\n")
+      print("Está inscribiendose al ", curso)
+      nombre= str(input("Indique sus Nombres sin el apellido: "))
+      apellido= str(input("Indique su Apellido: "))
+      conocimiento= str(input("Indique su conocimiento sobre la materia (Alto, Medio Nulo): "))
+      lugar_curso= incriptosActu + 1
+      
+      alumno = {
+          "Nombre": nombre, "Apellido": apellido, "Nivel de Conocimiento": conocimiento,
+          "Nombre de Curso/Taller": curso, "Lugar": lugar_curso,
+      } #este es el armado del registro de cada inscripto 
+      guardar_inscripcion(alumno, datos, arch)
 
 
 
