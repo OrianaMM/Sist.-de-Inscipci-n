@@ -1,23 +1,5 @@
 [
     {
-        "Nombre": "Oriana",
-        "Apellido": "Morcillo",
-        "Nivel de Conocimiento": "Alto",
-        "Nombre de Curso": "Curso de Electricidad"
-    },
-    {
-        "Nombre": "Oriana",
-        "Apellido": "Cabrera",
-        "Nivel de Conocimiento": "Medio",
-        "Nombre de Curso": "Curso de Inglés"
-    },
-    {
-        "Nombre": "Pablo Manuel",
-        "Apellido": "Frenchi",
-        "Nivel de Conocimiento": "Alto",
-        "Nombre de Curso": "Taller de Escritura"
-    },
-    {
         "Nombre": "Marianela",
         "Apellido": "Gonzales",
         "Nivel de Conocimiento": "medio",
@@ -29,6 +11,27 @@
         "Apellido": "Morcillo",
         "Nivel de Conocimiento": "Nulo",
         "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 1
+    },
+    {
+        "Nombre": "Camila",
+        "Apellido": "Martina",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 2
+    },
+    {
+        "Nombre": "Narela Tatiana",
+        "Apellido": "Velez",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 1
+    },
+    {
+        "Nombre": "Magali",
+        "Apellido": "Acosta",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Curso de Portugués",
         "Lugar": 1
     }
 ]

@@ -234,7 +234,7 @@ def mostrar_cupos():
     try:
         with open("inscriptos.json","r",encoding="utf-8") as archivo:
             datos = json.load(archivo)
-    except:
+    except(FileNotFoundError, json.JSONDecodeError):
         datos = []
 
     cursos = [
@@ -288,7 +288,7 @@ def curso_mas_demandado():
     contador = {}
 
     for alumno in datos:
-        curso = alumno["Nombre de Curso/Taller"]
+        curso = alumno.get("Nombre de Curso/Taller")
 
         if curso not in contador:
             contador[curso] = 0
@@ -300,7 +300,6 @@ def curso_mas_demandado():
         return
 
     mayor = max(contador, key=contador.get)
-
     print("Curso más demandado:")
     print(mayor, "-", contador[mayor], "inscriptos")
 
@@ -362,7 +361,7 @@ def promover_lista_espera(curso):
     alumno_promovido = None
 
     for alumno in espera:
-        if alumno.get("Nombre de Curso/Taller") == curso and alumno.get("Lugar") == 1:
+        if alumno.get("Nombre de Curso/Taller") == curso: 
             alumno_promovido = alumno
             break
 
@@ -458,9 +457,13 @@ while True:
  if accion:
     accion()
     print("\n")
+    input("🔙 Si quiere volver al menú principal, presione ENTER")
+    print("\n")
     carga_espera("Volviendo a Menu principal", 2)
  else:
    print("Esa opcion no es valida 🫤. Intente nuevamente")  
+   print("\n")
+   input("🔙 Si quiere volver al menú principal, presione ENTER")
    print("\n")
    carga_espera("Volviendo a Menu principal", 2)
    print("\n")
