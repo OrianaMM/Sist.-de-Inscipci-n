@@ -34,7 +34,6 @@ def obtenerInscriptosValidacion(curso, datos):
  
   if inscriptos_curso >= cupos:
     print(f"\n Lo sentimos, no quedan más lugares para el {curso} 🫤")
-    inscriptos_curso -= 1
     return -1 #esto indica que el curso está lleno
   return inscriptos_curso
       
@@ -171,14 +170,21 @@ def buscar_alumno():
     except (FileNotFoundError, json.JSONDecodeError):
         print("No hay alumnos inscriptos.")
         return
-    nombre = validar_nombre_apellido("Ingrese el nombre del inscripto: ")
-    apellido = validar_nombre_apellido("Ingrese el apellido del inscripto: ")
+    nombre = validar_nombre_apellido("Ingrese el nombre del inscripto: ").strip().lower()
+    apellido = validar_nombre_apellido("Ingrese el apellido del inscripto: ").strip().lower()
+
+    encontrado= False
+
     for alumno in datos:
-            if (alumno.get("Nombre").lower() == nombre.lower() and alumno.get("Apellido").lower() == apellido.lower()):
+            regNombre = str(alumno.get("Nombre","")).strip().lower()
+            regApellido = str(alumno.get("Apellido","")).strip().lower()
+            if ( regNombre == nombre) and (regApellido == apellido):
                 print(nombre,apellido)
                 print(alumno.get("Nombre de Curso/Taller"))
-                return
-    print("No existe alumno inscripto con ese nombre o apellido")   
+                encontrado = True
+                break #detiene la corrida del archivo
+    if not encontrado:            
+     print("No existe alumno inscripto con ese nombre o apellido")   
 
 def actualizar_lugares(datos, curso):
     lugar = 1
@@ -264,7 +270,7 @@ def mostrar_lista_espera():
     try:
         with open("espera.json","r",encoding="utf-8") as archivo:
             espera = json.load(archivo)
-    except:
+    except(FileNotFoundError, json.JSONDecodeError):
         print("No hay lista de espera.")
         return
 
@@ -281,7 +287,7 @@ def curso_mas_demandado():
     try:
         with open("inscriptos.json","r",encoding="utf-8") as archivo:
             datos = json.load(archivo)
-    except:
+    except(FileNotFoundError, json.JSONDecodeError):
         print("No hay datos.")
         return
 
