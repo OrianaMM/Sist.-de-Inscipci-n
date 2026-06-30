@@ -2,7 +2,7 @@ import json
 import time
 
 
-def carga_espera(mensaje="Cargando", segundos=3, num_puntos=3): #ayuda de IA gemini para  creacion de esta funcion
+def carga_espera(mensaje="Cargando", segundos=5, num_puntos=3): #ayuda de IA gemini para  creacion de esta funcion
     #Muestra un mensaje con puntos suspensivos animados en la consola
     for _ in range(segundos):
         for i in range(num_puntos + 1):
@@ -11,7 +11,7 @@ def carga_espera(mensaje="Cargando", segundos=3, num_puntos=3): #ayuda de IA gem
             print(f"\r{mensaje}{puntos}{espacios}", end="", flush=True)
             time.sleep(0.5)  # Pausa de medio segundo
     print()
-   
+
 def guardar_inscripcion(alumno, datos, arch):
     for linea in datos:
         if (linea.get("Nombre").lower() == alumno["Nombre"].lower() and
@@ -39,27 +39,66 @@ def obtenerInscriptosValidacion(curso, datos):
   return inscriptos_curso
       
 def ListaEspera(alumnoEspera, curso):
-    arch= "espera.json"
+    arch = "espera.json"
+
     try:
-        with open(arch,"r", encoding="utf-8") as archivo:
-           espera= json.load(archivo)
+        with open(arch, "r", encoding="utf-8") as archivo:
+            espera = json.load(archivo)
     except (FileNotFoundError, json.JSONDecodeError):
-           espera= []
-    
-    alumnosEnEspera= 0
+        espera = []
+
+    # Verificar duplicados en lista de espera
+    for alumno in espera:
+
+        if (alumno.get("Nombre").lower() == alumnoEspera["Nombre"].lower() and
+            alumno.get("Apellido").lower() == alumnoEspera["Apellido"].lower() and
+            alumno.get("Nombre de Curso/Taller") == curso):
+
+            print("Ya estás anotado en la lista de espera.")
+            return
+
+    alumnosEnEspera = 0
+
     for e in espera:
         if e.get("Nombre de Curso/Taller") == curso:
-           alumnosEnEspera += 1
-    lugar_espera= alumnosEnEspera + 1 
-    datosAlumno= { #asignacion de campos al registro del archivo
-        "Nombre": alumnoEspera["Nombre"], "Apellido": alumnoEspera["Apellido"], "Nivel de Conocimiento": alumnoEspera["Nivel de Conocimiento"],
-        "Nombre de Curso/Taller": curso, "Lugar": lugar_espera
+            alumnosEnEspera += 1
+
+    lugar_espera = alumnosEnEspera + 1
+
+    datosAlumno = {
+        "Nombre": alumnoEspera["Nombre"],
+        "Apellido": alumnoEspera["Apellido"],
+        "Nivel de Conocimiento": alumnoEspera["Nivel de Conocimiento"],
+        "Nombre de Curso/Taller": curso,
+        "Lugar": lugar_espera
     }
+
     espera.append(datosAlumno)
 
     with open(arch, "w", encoding="utf-8") as archivo:
         json.dump(espera, archivo, indent=4, ensure_ascii=False)
-        print("¡Te añadimos a la lista de espera! Si hay alguna vacante te avisaremos 😄")
+
+    print("¡Te añadimos a la lista de espera! Si hay alguna vacante te avisaremos 😄")
+
+def validar_nombre_apellido(mensaje):
+    while True:
+        dato = input(mensaje).strip()
+
+        if dato.replace(" ", "").isalpha():
+            return dato
+
+        print("Solo se permiten letras.")
+
+def validar_conocimiento():
+    while True:
+        conocimiento = input(
+            "Indique su conocimiento sobre la materia (Alto, Medio, Nulo): "
+        ).capitalize()
+
+        if conocimiento in ["Alto", "Medio", "Nulo"]:
+            return conocimiento
+
+        print(" Debe ingresar Alto, Medio o Nulo.")
 
 def inscripcion(curso):
     arch= "inscriptos.json"
@@ -80,9 +119,9 @@ def inscripcion(curso):
         print("Vamos a tomar sus datos para la lista de espera ✍️✍️")
         print("\n")
         print("Está inscribiendose al ", curso)
-        nombre= str(input("Indique sus Nombres sin el apellido: "))
-        apellido= str(input("Indique su Apellido: "))
-        conocimiento= str(input("Indique su conocimiento sobre la materia (Alto, Medio Nulo): "))  
+        nombre=  validar_nombre_apellido("Indique sus Nombres sin el apellido: ")
+        apellido= validar_nombre_apellido("Indique su Apellido: ")
+        conocimiento= validar_conocimiento()
         alumnoEspera= { #registro de esperas
             "Nombre": nombre, "Apellido": apellido, "Nivel de Conocimiento": conocimiento,
             "Nombre de Curso/Taller": curso
@@ -91,9 +130,9 @@ def inscripcion(curso):
     else:
       print("\n")
       print("Está inscribiendose al ", curso)
-      nombre= str(input("Indique sus Nombres sin el apellido: "))
-      apellido= str(input("Indique su Apellido: "))
-      conocimiento= str(input("Indique su conocimiento sobre la materia (Alto, Medio Nulo): "))
+      nombre= validar_nombre_apellido("Indique sus Nombres sin el apellido: ")
+      apellido= validar_nombre_apellido("Indique su Apellido: ")
+      conocimiento= validar_conocimiento()
       lugar_curso= incriptosActu + 1
       
       alumno = {
@@ -132,8 +171,8 @@ def buscar_alumno():
     except (FileNotFoundError, json.JSONDecodeError):
         print("No hay alumnos inscriptos.")
         return
-    nombre = str(input("Ingrese el nombre del inscripto: "))
-    apellido = str(input("Ingrese el apellido del inscripto: "))
+    nombre = validar_nombre_apellido("Ingrese el nombre del inscripto: ")
+    apellido = validar_nombre_apellido("Ingrese el apellido del inscripto: ")
     for alumno in datos:
             if (alumno.get("Nombre").lower() == nombre.lower() and alumno.get("Apellido").lower() == apellido.lower()):
                 print(nombre,apellido)
@@ -155,18 +194,219 @@ def dar_de_baja():
     except (FileNotFoundError, json.JSONDecodeError):
         print("No hay alumnos inscriptos.")
         return
-    nombre = str(input("Ingrese el nombre del inscripto: "))
-    apellido = str(input("Ingrese el apellido del inscripto: "))
+
+    nombre = validar_nombre_apellido(
+        "Ingrese el nombre del inscripto: "
+    )
+
+    apellido = validar_nombre_apellido(
+        "Ingrese el apellido del inscripto: "
+    )
+
     for alumno in datos:
-        if alumno.get("Nombre").lower() == nombre.lower() and alumno.get("Apellido").lower() == apellido.lower():
+
+        if (alumno.get("Nombre").lower() == nombre.lower() and
+            alumno.get("Apellido").lower() == apellido.lower()):
+
             curso = alumno.get("Nombre de Curso/Taller")
+
             datos.remove(alumno)
-            actualizar_lugares(datos,curso)
+
+            actualizar_lugares(datos, curso)
+
             with open("inscriptos.json", "w", encoding="utf-8") as archivo:
-                json.dump(datos, archivo, indent=4, ensure_ascii=False)
+                json.dump(
+                    datos,
+                    archivo,
+                    indent=4,
+                    ensure_ascii=False
+                )
+
             print("Alumno dado de baja correctamente.")
+
+            promover_lista_espera(curso)
+
             return
+
     print("No existe un alumno con ese nombre y apellido.")
+
+def mostrar_cupos():
+    try:
+        with open("inscriptos.json","r",encoding="utf-8") as archivo:
+            datos = json.load(archivo)
+    except:
+        datos = []
+
+    cursos = [
+        "Curso de Inglés",
+        "Curso de Portugués",
+        "Curso de Informática",
+        "Curso de Electricidad",
+        "Taller de Pintura",
+        "Taller de Escritura",
+        "Taller de Lecto Comprensión"
+    ]
+
+    print("\nCUPOS DISPONIBLES")
+
+    for curso in cursos:
+        inscriptos = 0
+
+        for alumno in datos:
+            if alumno["Nombre de Curso/Taller"] == curso:
+                inscriptos += 1
+
+        disponibles = 25 - inscriptos
+
+        print(curso, ":", disponibles, "lugares")
+
+def mostrar_lista_espera():
+    try:
+        with open("espera.json","r",encoding="utf-8") as archivo:
+            espera = json.load(archivo)
+    except:
+        print("No hay lista de espera.")
+        return
+
+    for alumno in espera:
+        print(
+            alumno["Nombre"],
+            alumno["Apellido"],
+            "-",
+            alumno["Nombre de Curso/Taller"],
+            "- Lugar:",
+            alumno["Lugar"]
+        )
+def curso_mas_demandado():
+    try:
+        with open("inscriptos.json","r",encoding="utf-8") as archivo:
+            datos = json.load(archivo)
+    except:
+        print("No hay datos.")
+        return
+
+    contador = {}
+
+    for alumno in datos:
+        curso = alumno["Nombre de Curso/Taller"]
+
+        if curso not in contador:
+            contador[curso] = 0
+
+        contador[curso] += 1
+
+    if not contador:
+        print("No hay alumnos inscriptos.")
+        return
+
+    mayor = max(contador, key=contador.get)
+
+    print("Curso más demandado:")
+    print(mayor, "-", contador[mayor], "inscriptos")
+
+def estadisticas_conocimiento():
+    try:
+        with open("inscriptos.json","r",encoding="utf-8") as archivo:
+            datos = json.load(archivo)
+    except (FileNotFoundError, json.JSONDecodeError):
+        print("No hay alumnos inscriptos.")
+        return
+
+    cursos = [
+        "Curso de Inglés",
+        "Curso de Portugués",
+        "Curso de Informática",
+        "Curso de Electricidad",
+        "Taller de Pintura",
+        "Taller de Escritura",
+        "Taller de Lecto Comprensión"
+    ]
+
+    for curso in cursos:
+
+        alto = 0
+        medio = 0
+        nulo = 0
+
+        for alumno in datos:
+
+            if alumno["Nombre de Curso/Taller"] == curso:
+
+                if alumno["Nivel de Conocimiento"] == "Alto":
+                    alto += 1
+
+                elif alumno["Nivel de Conocimiento"] == "Medio":
+                    medio += 1
+
+                elif alumno["Nivel de Conocimiento"] == "Nulo":
+                    nulo += 1
+
+        print("\n", curso)
+        print("Alto:", alto)
+        print("Medio:", medio)
+        print("Nulo:", nulo)
+  
+def promover_lista_espera(curso):
+    try:
+        with open("espera.json", "r", encoding="utf-8") as archivo:
+            espera = json.load(archivo)
+    except (FileNotFoundError, json.JSONDecodeError):
+        return
+
+    try:
+        with open("inscriptos.json", "r", encoding="utf-8") as archivo:
+            inscriptos = json.load(archivo)
+    except (FileNotFoundError, json.JSONDecodeError):
+        inscriptos = []
+
+    alumno_promovido = None
+
+    for alumno in espera:
+        if alumno.get("Nombre de Curso/Taller") == curso and alumno.get("Lugar") == 1:
+            alumno_promovido = alumno
+            break
+
+    if alumno_promovido is None:
+        return
+
+    espera.remove(alumno_promovido)
+
+    lugar = 1
+    for alumno in inscriptos:
+        if alumno.get("Nombre de Curso/Taller") == curso:
+            lugar += 1
+
+    nuevo_alumno = {
+        "Nombre": alumno_promovido["Nombre"],
+        "Apellido": alumno_promovido["Apellido"],
+        "Nivel de Conocimiento": alumno_promovido["Nivel de Conocimiento"],
+        "Nombre de Curso/Taller": curso,
+        "Lugar": lugar
+    }
+
+    inscriptos.append(nuevo_alumno)
+
+    posicion = 1
+    for alumno in espera:
+        if alumno.get("Nombre de Curso/Taller") == curso:
+            alumno["Lugar"] = posicion
+            posicion += 1
+
+    with open("inscriptos.json", "w", encoding="utf-8") as archivo:
+        json.dump(inscriptos, archivo, indent=4, ensure_ascii=False)
+
+    with open("espera.json", "w", encoding="utf-8") as archivo:
+        json.dump(espera, archivo, indent=4, ensure_ascii=False)
+
+    print(
+        f"Se liberó una vacante en {curso}. "
+        f"{nuevo_alumno['Nombre']} {nuevo_alumno['Apellido']} "
+        f"ha sido promovido desde la lista de espera."
+    )        
+
+def salir():
+    print("Gracias por utilizar nuestro sistema, vuelva pronto 😄")
+    exit()
         
 menu = {
     "1": lambda: inscripcion("Curso de Inglés"),
@@ -178,7 +418,12 @@ menu = {
     "7": lambda: inscripcion("Taller de Lecto Comprensión"),
     "8": estadisticas,
     "9": buscar_alumno,
-    "10": dar_de_baja
+    "10": dar_de_baja,
+    "11": mostrar_cupos,
+    "12": mostrar_lista_espera,
+    "13": curso_mas_demandado,
+    "14": estadisticas_conocimiento,
+    "15": salir
     }
 
 while True:
@@ -200,6 +445,11 @@ while True:
  8- Estadisticas de inscriptos a cada curso
  9- Buscar alumno inscripto
  10- Dar de baja alumno inscripto
+ 11- Mostrar cupos disponibles
+ 12- Mostrar lista de espera
+ 13- Mostrar curso más demandado
+ 14- Estadisticas de conocimiento de los alumnos
+ 15- Salir del programa
  """) 
  opcion =input("Introduzca su opción: ")
  accion = menu.get(opcion)
