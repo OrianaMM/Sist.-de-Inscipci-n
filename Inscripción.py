@@ -201,24 +201,13 @@ def dar_de_baja():
         print("No hay alumnos inscriptos.")
         return
 
-    nombre = validar_nombre_apellido(
-        "Ingrese el nombre del inscripto: "
-    )
-
-    apellido = validar_nombre_apellido(
-        "Ingrese el apellido del inscripto: "
-    )
+    nombre = validar_nombre_apellido("Ingrese el nombre del inscripto: ").strip().lower()
+    apellido = validar_nombre_apellido( "Ingrese el apellido del inscripto: ").strip().lower()
 
     for alumno in datos:
-
-        if (alumno.get("Nombre").lower() == nombre.lower() and
-            alumno.get("Apellido").lower() == apellido.lower()):
-
+        if (alumno.get("Nombre","").lower() == nombre and alumno.get("Apellido","").lower() == apellido):
             curso = alumno.get("Nombre de Curso/Taller")
-
             datos.remove(alumno)
-
-            actualizar_lugares(datos, curso)
 
             with open("inscriptos.json", "w", encoding="utf-8") as archivo:
                 json.dump(
@@ -229,7 +218,7 @@ def dar_de_baja():
                 )
 
             print("Alumno dado de baja correctamente.")
-
+            actualizar_lugares(datos, curso)
             promover_lista_espera(curso)
 
             return

@@ -7,13 +7,6 @@
         "Lugar": 1
     },
     {
-        "Nombre": "Oriana",
-        "Apellido": "Morcillo",
-        "Nivel de Conocimiento": "Nulo",
-        "Nombre de Curso/Taller": "Taller de Escritura",
-        "Lugar": 1
-    },
-    {
         "Nombre": "Camila",
         "Apellido": "Martina",
         "Nivel de Conocimiento": "Medio",
@@ -33,5 +26,593 @@
         "Nivel de Conocimiento": "Nulo",
         "Nombre de Curso/Taller": "Curso de Portugués",
         "Lugar": 1
+    },
+    {
+        "Nombre": "Mariano",
+        "Apellido": "Moreno",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 3
+    },
+    {
+        "Nombre": "Lucas",
+        "Apellido": "Benitez",
+        "Nivel de Conocimiento": "Bajo",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 4
+    },
+    {
+        "Nombre": "Martina",
+        "Apellido": "Gomez",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 1
+    },
+    {
+        "Nombre": "Mateo",
+        "Apellido": "Rodriguez",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 2
+    },
+    {
+        "Nombre": "Sofía",
+        "Apellido": "Fernandez",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 2
+    },
+    {
+        "Nombre": "Joaquín",
+        "Apellido": "Alvarez",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 5
+    },
+    {
+        "Nombre": "Valentina",
+        "Apellido": "Diaz",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 2
+    },
+    {
+        "Nombre": "Bautista",
+        "Apellido": "Perez",
+        "Nivel de Conocimiento": "Bajo",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 3
+    },
+    {
+        "Nombre": "Camila",
+        "Apellido": "Lopez",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 3
+    },
+    {
+        "Nombre": "Felipe",
+        "Apellido": "Romero",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 6
+    },
+    {
+        "Nombre": "Emma",
+        "Apellido": "Sosa",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 3
+    },
+    {
+        "Nombre": "Santiago",
+        "Apellido": "Torres",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 4
+    },
+    {
+        "Nombre": "Catalina",
+        "Apellido": "Ruiz",
+        "Nivel de Conocimiento": "Bajo",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 4
+    },
+    {
+        "Nombre": "Tomás",
+        "Apellido": "Silva",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 7
+    },
+    {
+        "Nombre": "Mia",
+        "Apellido": "Acuña",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 4
+    },
+    {
+        "Nombre": "Benjamín",
+        "Apellido": "Gimenez",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 5
+    },
+    {
+        "Nombre": "Elena",
+        "Apellido": "Rios",
+        "Nivel de Conocimiento": "Bajo",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 5
+    },
+    {
+        "Nombre": "Ian",
+        "Apellido": "Mendoza",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 8
+    },
+    {
+        "Nombre": "Victoria",
+        "Apellido": "Mansilla",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 5
+    },
+    {
+        "Nombre": "Lautaro",
+        "Apellido": "Caceres",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 6
+    },
+    {
+        "Nombre": "Delfina",
+        "Apellido": "Duarte",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 6
+    },
+    {
+        "Nombre": "Julián",
+        "Apellido": "Acosta",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 9
+    },
+    {
+        "Nombre": "Zoe",
+        "Apellido": "Miranda",
+        "Nivel de Conocimiento": "Bajo",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 6
+    },
+    {
+        "Nombre": "Facundo",
+        "Apellido": "Flores",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 7
+    },
+    {
+        "Nombre": "Olivia",
+        "Apellido": "Medina",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 7
+    },
+    {
+        "Nombre": "Nahuel",
+        "Apellido": "Suarez",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 10
+    },
+    {
+        "Nombre": "Amparo",
+        "Apellido": "Castro",
+        "Nivel de Conocimiento": "Bajo",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 7
+    },
+    {
+        "Nombre": "Bruno",
+        "Apellido": "Peralta",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 8
+    },
+    {
+        "Nombre": "Clara",
+        "Apellido": "Marquez",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 8
+    },
+    {
+        "Nombre": "Ramiro",
+        "Apellido": "Rojas",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 11
+    },
+    {
+        "Nombre": "Juana",
+        "Apellido": "Blanco",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 8
+    },
+    {
+        "Nombre": "Ignacio",
+        "Apellido": "Cabrera",
+        "Nivel de Conocimiento": "Bajo",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 9
+    },
+    {
+        "Nombre": "Guadalupe",
+        "Apellido": "Rossi",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 9
+    },
+    {
+        "Nombre": "Luciano",
+        "Apellido": "Luna",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 12
+    },
+    {
+        "Nombre": "Morena",
+        "Apellido": "Herrera",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 9
+    },
+    {
+        "Nombre": "Gael",
+        "Apellido": "Sanchez",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 10
+    },
+    {
+        "Nombre": "Alma",
+        "Apellido": "Gallardo",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 10
+    },
+    {
+        "Nombre": "Thiago",
+        "Apellido": "Vargas",
+        "Nivel de Conocimiento": "Bajo",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 13
+    },
+    {
+        "Nombre": "Micaela",
+        "Apellido": "Ortega",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 10
+    },
+    {
+        "Nombre": "Valentin",
+        "Apellido": "Falcon",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 11
+    },
+    {
+        "Nombre": "Lola",
+        "Apellido": "Guzman",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 11
+    },
+    {
+        "Nombre": "Augusto",
+        "Apellido": "Paz",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 14
+    },
+    {
+        "Nombre": "Paulina",
+        "Apellido": "Soria",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 11
+    },
+    {
+        "Nombre": "Dante",
+        "Apellido": "Molina",
+        "Nivel de Conocimiento": "Bajo",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 12
+    },
+    {
+        "Nombre": "Malena",
+        "Apellido": "Ortiz",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 12
+    },
+    {
+        "Nombre": "Bora",
+        "Apellido": "Vidal",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 15
+    },
+    {
+        "Nombre": "Milagros",
+        "Apellido": "Gimenez",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 12
+    },
+    {
+        "Nombre": "Izan",
+        "Apellido": "Navarro",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 13
+    },
+    {
+        "Nombre": "Abril",
+        "Apellido": "Marín",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 13
+    },
+    {
+        "Nombre": "Leandro",
+        "Apellido": "Godoy",
+        "Nivel de Conocimiento": "Bajo",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 16
+    },
+    {
+        "Nombre": "Bianca",
+        "Apellido": "Mendez",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 13
+    },
+    {
+        "Nombre": "Lisandro",
+        "Apellido": "Franco",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 14
+    },
+    {
+        "Nombre": "Camila",
+        "Apellido": "Pinto",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 14
+    },
+    {
+        "Nombre": "Renato",
+        "Apellido": "Campos",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 17
+    },
+    {
+        "Nombre": "Pilar",
+        "Apellido": "Farías",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 14
+    },
+    {
+        "Nombre": "Leonel",
+        "Apellido": "Juarez",
+        "Nivel de Conocimiento": "Bajo",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 15
+    },
+    {
+        "Nombre": "Aitana",
+        "Apellido": "Vera",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 15
+    },
+    {
+        "Nombre": "Manuel",
+        "Apellido": "Figueroa",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 18
+    },
+    {
+        "Nombre": "Isabella",
+        "Apellido": "Nieto",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 15
+    },
+    {
+        "Nombre": "Ezequiel",
+        "Apellido": "Galarza",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 16
+    },
+    {
+        "Nombre": "Juana",
+        "Apellido": "Zarate",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 16
+    },
+    {
+        "Nombre": "Gino",
+        "Apellido": "Morales",
+        "Nivel de Conocimiento": "Bajo",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 19
+    },
+    {
+        "Nombre": "Justina",
+        "Apellido": "Miranda",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 16
+    },
+    {
+        "Nombre": "Fermin",
+        "Apellido": "Cardozo",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 17
+    },
+    {
+        "Nombre": "Josefina",
+        "Apellido": "Bravo",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 17
+    },
+    {
+        "Nombre": "Camilo",
+        "Apellido": "Soria",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 20
+    },
+    {
+        "Nombre": "Constanza",
+        "Apellido": "Espinoza",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 17
+    },
+    {
+        "Nombre": "Fausto",
+        "Apellido": "Heredia",
+        "Nivel de Conocimiento": "Bajo",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 18
+    },
+    {
+        "Nombre": "Emilia",
+        "Apellido": "Reyes",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 18
+    },
+    {
+        "Nombre": "Esteban",
+        "Apellido": "Aguirre",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 21
+    },
+    {
+        "Nombre": "Fiorella",
+        "Apellido": "Correa",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 18
+    },
+    {
+        "Nombre": "Simon",
+        "Apellido": "Guzman",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 19
+    },
+    {
+        "Nombre": "Franchesca",
+        "Apellido": "Peralta",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 19
+    },
+    {
+        "Nombre": "Gaston",
+        "Apellido": "Duarte",
+        "Nivel de Conocimiento": "Bajo",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 22
+    },
+    {
+        "Nombre": "Guillermina",
+        "Apellido": "Soto",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 19
+    },
+    {
+        "Nombre": "Tadeo",
+        "Apellido": "Benitez",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 20
+    },
+    {
+        "Nombre": "Jazmin",
+        "Apellido": "Vera",
+        "Nivel de Conocimiento": "Nulo",
+        "Nombre de Curso/Taller": "Curso de Portugués",
+        "Lugar": 20
+    },
+    {
+        "Nombre": "Alejo",
+        "Apellido": "Acosta",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 23
+    },
+    {
+        "Nombre": "Juan Manuel",
+        "Apellido": "Lirios",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 24
+    },
+    {
+        "Nombre": "Magdalena Carmen Frida",
+        "Apellido": "Kahlo",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Taller de Pintura",
+        "Lugar": 21
+    },
+    {
+        "Nombre": "Ada",
+        "Apellido": "Lovelace",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Curso de Informática",
+        "Lugar": 1
+    },
+    {
+        "Nombre": "Edgar Alan",
+        "Apellido": "Poe",
+        "Nivel de Conocimiento": "Medio",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 20
+    },
+    {
+        "Nombre": "Mary",
+        "Apellido": "Godwin Shelly",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Taller de Escritura",
+        "Lugar": 21
+    },
+    {
+        "Nombre": "William",
+        "Apellido": "Brown",
+        "Nivel de Conocimiento": "Alto",
+        "Nombre de Curso/Taller": "Curso de Inglés",
+        "Lugar": 25
     }
 ]
